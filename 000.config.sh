@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
 export DOCK_ROOT="/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/001_DRef_6.14_version/dock6_dev"
 export DOCK_BIN="${DOCK_ROOT}/bin/dock6"
@@ -23,7 +23,7 @@ export VDW_FILE="${PARAM_ROOT}/vdw_de_novo.defn"
 export FLEX_FILE="${PARAM_ROOT}/flex.defn"
 export FLEX_DRIVE="${PARAM_ROOT}/flex_drive.tbl"
 
-export TEMPLATE_ROOT="/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/16_11_2026_2GQG_Focus_Library_Testing/003c_Dref_Focused_Library_Multiple_Anchors_wL9_Growth_tree_6.14"
+export TEMPLATE_ROOT="${ROOT}/zzz.templates"
 export DN_TEMPLATE="${TEMPLATE_ROOT}/dn_generic.in"
 export HMS_TEMPLATE="${TEMPLATE_ROOT}/rescore_with_hms.in"
 

@@ -11,10 +11,13 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="${SLURM_SUBMIT_DIR:?SLURM_SUBMIT_DIR is not set}"
-
-cd "$PROJECT_ROOT"
+cd "${SLURM_SUBMIT_DIR:?Submit from the repository root}"
 source ./000.config.sh
+
+if [[ "$(pwd -P)" != "$ROOT" ]]; then
+    echo "ERROR: Submit the job from the repository root." >&2
+    exit 1
+fi
 
 module purge
 unset LD_LIBRARY_PATH
@@ -33,7 +36,7 @@ case "$SLURM_ARRAY_TASK_ID" in
         EXP_DIR="$WREF_DIR"
         ;;
     *)
-        echo "Invalid array task ID: $SLURM_ARRAY_TASK_ID" >&2
+        echo "Invalid array task ID" >&2
         exit 1
         ;;
 esac
@@ -44,20 +47,27 @@ COMPLETED="${RESULTS}/${PREFIX}.completed.denovo_build.mol2"
 LOG="${RESULTS}/${PREFIX}.denovo.out"
 
 [[ -f "$INPUT" ]] || {
-    echo "Missing DOCK input: $INPUT" >&2
+    echo "Missing input: $INPUT" >&2
     exit 1
 }
 
-[[ ! -e "$COMPLETED" ]] || {
-    echo "Existing completed MOL2: $COMPLETED" >&2
+[[ -x "$DOCK_BIN" ]] || {
+    echo "DOCK executable unavailable: $DOCK_BIN" >&2
     exit 1
 }
+
+if [[ -e "$COMPLETED" ]]; then
+    echo "Existing completed MOL2: $COMPLETED" >&2
+    echo "Use a clean results directory for a new calculation." >&2
+    exit 1
+fi
 
 cd "$RESULTS"
 
-echo "Running $MODE"
+echo "Project: $ROOT"
+echo "Calculation: $MODE"
 echo "Node: $(hostname)"
-echo "Input: $INPUT"
+echo "Results: $RESULTS"
 
 "$DOCK_BIN" -i "$INPUT" -o "$LOG"
 
