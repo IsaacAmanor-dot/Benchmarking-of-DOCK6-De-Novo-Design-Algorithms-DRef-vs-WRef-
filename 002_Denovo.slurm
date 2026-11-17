@@ -11,7 +11,7 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/17_11_2026_2GQG_Focus_Library_Testing"
+PROJECT_ROOT="${SLURM_SUBMIT_DIR:?SLURM_SUBMIT_DIR is not set}"
 
 cd "$PROJECT_ROOT"
 source ./000.config.sh

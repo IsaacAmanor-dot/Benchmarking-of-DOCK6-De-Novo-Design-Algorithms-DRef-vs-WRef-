@@ -32,6 +32,12 @@ export N_LAYERS=9
 export MAX_ROOT_SIZE=25
 export MAX_LAYER_SIZE=25
 
+export MW_CUTOFF_TYPE="hard"
+export MW_UPPER=500.0
+export MW_LOWER=0.0
+export FORMAL_CHARGE=1.0
+export ROTATABLE_BONDS=10
+
 export GROW_HMS_MATCH=-5
 export GROW_HMS_RMSD=10
 export GROW_GRID_WEIGHT=1
