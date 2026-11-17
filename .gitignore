@@ -1,0 +1,11 @@
+*.out
+*.err
+*.log
+__pycache__/
+.DS_Store
+
+001_DRef_2GQG/zzz.results/*
+!001_DRef_2GQG/zzz.results/.gitkeep
+
+002_WRef_2GQG/zzz.results/*
+!002_WRef_2GQG/zzz.results/.gitkeep
