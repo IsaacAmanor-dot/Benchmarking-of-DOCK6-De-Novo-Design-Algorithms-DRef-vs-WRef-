@@ -45,4 +45,3 @@ parameters and the same full-reference ligand.
 
 The experiment requires the developmental DOCK6.14
 executable with final-layer growth-tree support.
-# Benchmarking-of-DOCK6-De-Novo-Design-Algorithms-DRef-vs-WRef-
