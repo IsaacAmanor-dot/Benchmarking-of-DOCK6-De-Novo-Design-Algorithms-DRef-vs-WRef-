@@ -11,13 +11,21 @@
 
 set -euo pipefail
 
-cd "${SLURM_SUBMIT_DIR:?Submit from the repository root}"
-source ./000.config.sh
+# Submit from the original script; Slurm runs a spooled copy.
+if [[ -z "${SLURM_ARRAY_TASK_ID:-}" ]]; then
+    SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+    source "${SCRIPT_ROOT}/000.config.sh"
+    exec sbatch --chdir="$ROOT" --partition="$PARTITION" --time="$WALLTIME" \
+        "$ROOT/002_Denovo.slurm" "$ROOT"
+fi
 
-if [[ "$(pwd -P)" != "$ROOT" ]]; then
-    echo "ERROR: Submit the job from the repository root." >&2
+PROJECT_ROOT="${1:-${SLURM_SUBMIT_DIR:?Missing submission directory}}"
+if [[ ! -f "${PROJECT_ROOT}/000.config.sh" ]]; then
+    echo "Cannot locate 000.config.sh in: $PROJECT_ROOT" >&2
+    echo "Submit with: bash /path/to/repository/002_Denovo.slurm" >&2
     exit 1
 fi
+source "${PROJECT_ROOT}/000.config.sh"
 
 module purge
 unset LD_LIBRARY_PATH

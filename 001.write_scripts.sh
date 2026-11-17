@@ -96,7 +96,7 @@ for mode, directory, prefix, dynamic in [
 
     rescoring = {
         "ligand_atom_file":
-            str(results / f"{prefix}.completed.denovo_build.mol2"),
+            f"{prefix}.completed.denovo_build.mol2",
         "descriptor_use_dynamic_reference": "no",
         "descriptor_use_grid_score": "no",
         "descriptor_use_hungarian": "yes",

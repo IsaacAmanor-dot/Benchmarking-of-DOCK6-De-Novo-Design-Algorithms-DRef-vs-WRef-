@@ -3,12 +3,12 @@ set -euo pipefail
 
 export ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
-export DOCK_ROOT="/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/001_DRef_6.14_version/dock6_dev"
-export DOCK_BIN="${DOCK_ROOT}/bin/dock6"
-export PARAM_ROOT="${DOCK_ROOT}/parameters"
+export DOCK_ROOT="${DOCK_ROOT:-/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/001_DRef_6.14_version/dock6_dev}"
+export DOCK_BIN="${DOCK_BIN:-${DOCK_ROOT}/bin/dock6}"
+export PARAM_ROOT="${PARAM_ROOT:-${DOCK_ROOT}/parameters}"
 
-export FRAG_ROOT="/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/2GQG_Fragment_Library"
-export SYS_ROOT="/gpfs/projects/rizzo/iamanor/Systems_and_Library_Files/001_Systems_Files/002_DRef_Systems/2GQG"
+export FRAG_ROOT="${FRAG_ROOT:-/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/2GQG_Fragment_Library}"
+export SYS_ROOT="${SYS_ROOT:-/gpfs/projects/rizzo/iamanor/Systems_and_Library_Files/001_Systems_Files/002_DRef_Systems/2GQG}"
 
 export SCAFFOLD="${FRAG_ROOT}/2GQG_lig_fraglib_scaffold.mol2"
 export LINKER="${FRAG_ROOT}/2GQG_lig_fraglib_linker.mol2"
@@ -33,9 +33,9 @@ export MAX_ROOT_SIZE=25
 export MAX_LAYER_SIZE=25
 
 export MW_CUTOFF_TYPE="hard"
-export MW_UPPER=500.0
+export MW_UPPER=500
 export MW_LOWER=0.0
-export FORMAL_CHARGE=1.0
+export FORMAL_CHARGE=1
 export ROTATABLE_BONDS=10
 
 export GROW_HMS_MATCH=-5
