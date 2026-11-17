@@ -77,7 +77,7 @@ for mode, directory, prefix, dynamic in [
         "dn_constraint_formal_charge": env("FORMAL_CHARGE"),
         "dn_constraint_rot_bon": env("ROTATABLE_BONDS"),
         "dn_write_growth_trees": "yes",
-        "dn_write_final_layer_growth_trees": "yes",
+        "dn_write_completed_growth_trees": "yes",
         "dn_output_prefix": prefix,
         "receptor_site_file": env("SPHERES"),
         "descriptor_use_dynamic_reference": dynamic,
