@@ -35,7 +35,7 @@ export MAX_LAYER_SIZE=25
 
 export MW_CUTOFF_TYPE="hard"
 export MW_UPPER=500
-export MW_LOWER=0.0
+export MW_LOWER=300
 export FORMAL_CHARGE=1
 export ROTATABLE_BONDS=10
 
