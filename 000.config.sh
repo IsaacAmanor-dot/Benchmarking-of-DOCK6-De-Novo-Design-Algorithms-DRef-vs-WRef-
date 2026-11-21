@@ -10,11 +10,12 @@ export PARAM_ROOT="${PARAM_ROOT:-${DOCK_ROOT}/parameters}"
 export FRAG_ROOT="${FRAG_ROOT:-/gpfs/projects/rizzo/iamanor/Collaborations/Carissa/2GQG_Fragment_Library}"
 export SYS_ROOT="${SYS_ROOT:-/gpfs/projects/rizzo/iamanor/Systems_and_Library_Files/001_Systems_Files/002_DRef_Systems/2GQG}"
 
-export SCAFFOLD="${FRAG_ROOT}/2GQG_lig_fraglib_scaffold.mol2"
-export LINKER="${FRAG_ROOT}/2GQG_lig_fraglib_linker.mol2"
-export SIDECHAIN="${FRAG_ROOT}/2GQG_lig_fraglib_sidechain.mol2"
+export SCAFFOLD="${FRAG_ROOT}/2GQG_combined_fraglib_scaffold.mol2"
+export LINKER="${FRAG_ROOT}/2GQG_combined_fraglib_linker.mol2"
+export SIDECHAIN="${FRAG_ROOT}/2GQG_combined_fraglib_sidechain.mol2"
 export TORENV="${FRAG_ROOT}/2GQG_combined_fraglib_torsion.dat"
 
+export ANCHOR="${FRAG_ROOT}/2GQG_last_linker_anchor.mol2"
 export REFERENCE="${SYS_ROOT}/2GQG.lig.am1bcc.mol2"
 export SPHERES="${SYS_ROOT}/2GQG.rec.clust.close.sph"
 export GRID_PREFIX="${SYS_ROOT}/2GQG.rec"
@@ -27,7 +28,7 @@ export TEMPLATE_ROOT="${ROOT}/zzz.templates"
 export DN_TEMPLATE="${TEMPLATE_ROOT}/dn_generic.in"
 export HMS_TEMPLATE="${TEMPLATE_ROOT}/rescore_with_hms.in"
 
-export N_ANCHORS=9
+export N_ANCHORS="1"
 export N_LAYERS=9
 export MAX_ROOT_SIZE=25
 export MAX_LAYER_SIZE=25

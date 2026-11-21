@@ -1,6 +1,6 @@
 conformer_search_type                                        rigid
 use_internal_energy                                          no
-ligand_atom_file                                             /gpfs/projects/rizzo/iamanor/Collaborations/Carissa/17_11_2026_2GQG_Focus_Library_Testing/001_DRef_2GQG/zzz.results/DRef_ON.completed.denovo_build.mol2
+ligand_atom_file                                             DRef_ON.completed.denovo_build.mol2
 limit_max_ligands                                            no
 skip_molecule                                                no
 read_mol_solvation                                           no
